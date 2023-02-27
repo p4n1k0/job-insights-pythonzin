@@ -15,25 +15,18 @@ def get_max_salary(path: str) -> int:
     return salary
 
 
-get_max_salary('data/jobs.csv')
-
-
 def get_min_salary(path: str) -> int:
-    """Get the minimum salary of all jobs
+    data = read(path)
+    salary = get_max_salary(path)
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    raise NotImplementedError
+    for job in data:
+        try:
+            if int(job['min_salary']) < salary:
+                salary = int(job['min_salary'])
+        except ValueError:
+            salary
+            
+    return salary
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
