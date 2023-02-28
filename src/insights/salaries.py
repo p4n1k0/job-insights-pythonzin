@@ -25,7 +25,6 @@ def get_min_salary(path: str) -> int:
                 salary = int(job['min_salary'])
         except ValueError:
             salary
-   
     return salary
 
 
